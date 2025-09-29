@@ -1,0 +1,107 @@
+{{ define "main" }}
+<div class="container">
+    <!-- Page Header with same style as other pages -->
+    <div class="row">
+        <div class="col-12">
+            <section class="hero text-center mb-5" style="margin-bottom: 3rem !important; margin-top: -3rem;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h1 class="display-5 fw-bold mb-3">{{ .Title }}</h1>
+                            {{ if .Description }}
+                            <p class="lead opacity-90">{{ .Description }}</p>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Main Content with proper styling -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="content">
+                <!-- Process content to add proper Bootstrap classes -->
+                {{ $content := .Content }}
+
+                <!-- Style section headers as cards -->
+                {{ $content = replace $content "<h2" "<div class=\"card mb-4 border-0 shadow-sm\"><div class=\"card-header bg-primary text-white\"><h2 class=\"mb-0 text-white\"" }}
+                {{ $content = replace $content "</h2>" "</h2></div><div class=\"card-body\">" }}
+
+                <!-- Close card body before next section -->
+                {{ $content = replace $content "<hr>" "</div></div><hr>" }}
+
+                <!-- Style images -->
+                {{ $content = replace $content "<img" "<img class=\"img-fluid rounded shadow-sm mb-3 d-block mx-auto\"" }}
+
+                <!-- Style lists -->
+                {{ $content = replace $content "<ul>" "<ul class=\"list-group list-group-flush mb-3\">" }}
+                {{ $content = replace $content "<li>" "<li class=\"list-group-item border-0 px-0\">" }}
+
+                <!-- Style status badges -->
+                {{ $content = replace $content "<strong>Status:</strong> Em desenvolvimento" "<span class=\"badge bg-success mb-2\"><i class=\"bi bi-clock me-1\"></i>Em Desenvolvimento</span>" }}
+                {{ $content = replace $content "<strong>Status:</strong> Planejado" "<span class=\"badge bg-warning text-dark mb-2\"><i class=\"bi bi-calendar-plus me-1\"></i>Planejado</span>" }}
+
+                <!-- Style focus text -->
+                {{ $content = replace $content "<strong>Foco:</strong>" "<br><span class=\"text-muted\"><i class=\"bi bi-bullseye me-1\"></i><strong>Foco:</strong>" }}
+                {{ $content = replace $content "jornadas</p>" "jornadas</span></p>" }}
+                {{ $content = replace $content "sistema</p>" "sistema</span></p>" }}
+                {{ $content = replace $content "requisitos</p>" "requisitos</span></p>" }}
+
+                <!-- Style h3 headers -->
+                {{ $content = replace $content "<h3" "<h3 class=\"h5 mt-4 mb-3 text-primary\"" }}
+
+                <!-- Add final closing div for last section -->
+                {{ $content = printf "%s</div></div>" $content }}
+
+                {{ $content | safeHTML }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-pages if any -->
+    {{ if .Pages }}
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="section-title mb-4">
+                <i class="bi bi-list-ul text-primary me-2"></i>
+                Conteúdo Relacionado
+            </h2>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {{ range .Pages }}
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="card-title mb-0">
+                            <a href="{{ .RelPermalink }}" class="text-decoration-none">{{ .Title }}</a>
+                        </h5>
+                        {{ if .Date }}
+                        <small class="text-muted">{{ .Date.Format "02/01/2006" }}</small>
+                        {{ end }}
+                    </div>
+
+                    {{ if .Description }}
+                    <p class="card-text text-muted">{{ .Description }}</p>
+                    {{ else if .Summary }}
+                    <p class="card-text text-muted">{{ .Summary }}</p>
+                    {{ end }}
+
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <a href="{{ .RelPermalink }}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-arrow-right me-1"></i>
+                            Acessar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

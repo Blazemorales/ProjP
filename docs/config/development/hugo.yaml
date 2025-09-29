@@ -1,1 +1,48 @@
-baseURL: /
+baseURL: http://localhost:1313
+
+# Configurações de desenvolvimento
+environment: development
+buildDrafts: true
+buildFuture: true
+buildExpired: true
+
+# Performance
+minify: false
+enableRobotsTXT: false
+disableKinds:
+  - sitemap
+  - robotsTXT
+
+# Configurações do servidor
+server:
+  host: "localhost"
+  port: 1313
+  bind: "127.0.0.1"
+  headers:
+    - for: "/**"
+      values:
+        Cache-Control: "no-cache, no-store, must-revalidate"
+        X-Frame-Options: "SAMEORIGIN"
+
+# Watch e reload
+watch: true
+disableFastRender: false
+enableInlineShortcodes: true
+
+# Debug
+enableGitInfo: false
+verbose: true
+verboseLog: false
+
+# Assets
+assetDir: "assets"
+
+# Markup para melhor desenvolvimento
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+    lineNos: true
+    codeFences: true

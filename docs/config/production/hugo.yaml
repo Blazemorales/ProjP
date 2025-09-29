@@ -4,10 +4,8 @@ title: "P.I.T.E.R"
 
 # Configurações básicas
 disableKinds: ["taxonomy", "term"]
-enableRobotsTXT: true
 
 # Configurações para GitHub Pages
-canonifyURLs: true
 relativeURLs: false
 
 # Menus com URLs corretas para produção
@@ -25,3 +23,21 @@ menu:
       name: "Arquitetura"
       url: "/arquitetura/"
       weight: 3
+
+environment: production
+
+# Performance
+minify: true
+enableRobotsTXT: true
+enableGitInfo: true
+
+# SEO
+canonifyURLs: true
+
+# Otimizações
+build:
+  writeStats: true
+  
+imaging:
+  quality: 85
+  resampleFilter: lanczos

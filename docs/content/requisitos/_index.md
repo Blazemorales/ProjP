@@ -19,8 +19,10 @@ Documentação completa dos requisitos do sistema P.I.T.E.R, organizados por tip
 ---
 
 ## Story Maps
-**Status:** Em desenvolvimento  
+**Status:** Em desenvolvimento
 **Foco:** Visualização das histórias de usuário organizadas por jornadas
+
+![Story Maps do Sistema P.I.T.E.R](/assets/images/storymaps.png)
 
 ### Objetivos Principais:
 - Mapeamento completo das funcionalidades
@@ -28,16 +30,6 @@ Documentação completa dos requisitos do sistema P.I.T.E.R, organizados por tip
 - Priorização por valor de negócio
 - Visualização da experiência do usuário
 
-### Conteúdo:
-```
-┌─────────────────┬─────────────────┬─────────────────┬─────────────────┐
-│   DESCOBRIR     │    ANALISAR     │   MONITORAR     │   COMPARTILHAR  │
-├─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-│ • Buscar dados  │ • Ver dashboard │ • Alertas       │ • Exportar      │
-│ • Filtrar       │ • Gráficos      │ • Tendências    │ • Relatórios    │
-│ • Navegar       │ • Comparações   │ • Histórico     │ • APIs          │
-└─────────────────┴─────────────────┴─────────────────┴─────────────────┘
-```
 
 ---
 
@@ -64,7 +56,7 @@ Documentação completa dos requisitos do sistema P.I.T.E.R, organizados por tip
 ### Funcionalidades Principais:
 - **RF-001**: Busca inteligente de investimentos
 - **RF-002**: Análise de dados do Querido Diário
-- **RF-003**: Dashboard interativo
+- **RF-003**: Trechos do diário oficial
 - **RF-004**: Relatórios automatizados
 
 ---
@@ -80,16 +72,6 @@ Documentação completa dos requisitos do sistema P.I.T.E.R, organizados por tip
 - **RNF-004**: Disponibilidade e confiabilidade
 
 ---
-
-## Critérios de Aceitação
-**Status:** Planejado  
-**Foco:** Validação e testes dos requisitos
-
-### Metodologia:
-- **Design Thinking**: Workshops de ideação
-- **User Story Mapping**: Mapeamento colaborativo
-- **Entrevistas**: Com stakeholders chave
-- **Prototipagem**: Mockups interativos
 
 ---
 
